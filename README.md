@@ -6,7 +6,7 @@ A tool to control the fan speed by monitoring the temperature of CPU via IPMI.
 
 ## Why
 
-Our Dell R730 server's iDRAC is not works as expected. The fan always run full speed. And is very noisy, We digged but didn't fix out. So I build this for control the fan speed programmatically. And use RUST just for practice. Any contribute is welcome.
+Our Dell R730 server's iDRAC is not works as expected. The fan always run full speed. And is very noisy, We digged but didn't fix out. So I build this to control the fan speed programmatically. And use RUST just for practice. Any contribute is welcome.
 
 ## Usage
 
