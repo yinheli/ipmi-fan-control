@@ -15,7 +15,7 @@ use tokio::time::{self, Duration};
 mod args;
 mod ipmi;
 
-#[tokio::main]
+#[tokio::main(flavor = "current_thread")]
 async fn main() {
     let args = args::Args::parse();
 
