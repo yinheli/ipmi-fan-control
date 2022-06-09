@@ -1,12 +1,28 @@
 # ipmi-fan-control
 
+[![MIT licensed][mit-badge]][mit-url]
+
 A tool to control the fan speed by monitoring the temperature of CPU via IPMI.
 
-## why
+## Why
 
 Our Dell R730 server's iDRAC is not works as expected. The fan always run full speed. And is very noisy, We digged but didn't fix out. So I build this for control the fan speed programmatically. And use RUST just for practice. Any contribute is welcome.
 
-## usage
+## Usage
+
+Download from [release](https://github.com/yinheli/ipmi-fan-control/releases) page (prebuilt binary via github actions), or build from source code.
+
+```bash
+cargo build --release
+```
+
+Install dependency, install (debian/pve):
+
+```bash
+apt install ipmitool
+```
+
+use `ipmi-fan-control --help` to see the usage.
 
 ```bash
 ipmi-fan-control --help
@@ -28,7 +44,7 @@ SUBCOMMANDS:
     info     Print CPU temperature and fan RPM
 ```
 
-## resource
+## Resource
 
 - https://www.intel.com/content/www/us/en/servers/ipmi/ipmi-home.html
 - https://github.com/ipmitool/ipmitool
