@@ -9,7 +9,7 @@ use chrono::Local;
 use clap::Parser;
 use ipmi::{Cmd, Ipmi, IpmiTool};
 use log::{error, info};
-use std::io::Write;
+use std::{io::Write, ops::RangeInclusive};
 use tokio::time::{self, Duration};
 
 mod args;
@@ -43,13 +43,13 @@ async fn main() {
     match args.command {
         Command::Auto(a) => {
             let mut interval = a.interval;
-            if interval < 5 || interval > 120 {
+            if !RangeInclusive::new(5, 120).contains(&interval) {
                 interval = 5;
                 info!("invalid interval, interval set to 5");
             }
 
             let mut threshold = a.threshold;
-            if threshold < 60 || threshold > 100 {
+            if !RangeInclusive::new(60, 100).contains(&threshold) {
                 threshold = 75;
                 info!("invalid threshold, threshold set to {}", threshold);
             }
