@@ -1,0 +1,12 @@
+[Unit]
+Description=ipmi fan control
+
+[Service]
+Type=simple
+Restart=always
+RestartSec=10
+ExecStart=/usr/bin/ipmi-fan-control auto --interval 5 --threshold 70
+KillMode=mixed
+
+[Install]
+WantedBy=multi-user.target
