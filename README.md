@@ -1,6 +1,6 @@
 # ipmi-fan-control
 
-[![MIT licensed][mit-badge]][mit-url]
+[![GitHub license](https://img.shields.io/github/license/yinheli/ipmi-fan-control)](https://github.com/yinheli/ipmi-fan-control/blob/master/LICENSE)
 
 A tool to control the fan speed by monitoring the temperature of CPU via IPMI.
 
