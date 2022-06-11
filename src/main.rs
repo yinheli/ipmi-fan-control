@@ -104,6 +104,7 @@ async fn main() {
             if v > 100 {
                 v = 100;
             }
+            info!("fixed mode, set fan speed to {}", v);
             if let Err(e) = tool.set_fan_speed(v) {
                 error!("set fan speed, error: {}", e);
             }
