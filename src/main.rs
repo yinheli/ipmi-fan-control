@@ -61,7 +61,7 @@ async fn main() {
 
             let mut interval = time::interval(Duration::from_secs(interval));
 
-            let mut last_speed = 0;
+            let mut last_speed = 0xff;
 
             loop {
                 interval.tick().await;
