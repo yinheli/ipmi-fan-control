@@ -146,7 +146,7 @@ Temp             | 0Fh | ok  |  3.2 | 45 degrees C
             Ok(output.to_string())
         }
 
-        fn set_fan_speed(&self, speed: u16) -> Result<(), Error> {
+        fn set_fan_speed(&self, _speed: u16) -> Result<(), Error> {
             Ok(())
         }
     }

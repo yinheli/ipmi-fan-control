@@ -20,6 +20,7 @@ pub enum Command {
     /// Set fixed RPM percentage for fan
     Fixed {
         /// value range 0-100
+        #[clap(value_parser)]
         value: u16,
     },
 
