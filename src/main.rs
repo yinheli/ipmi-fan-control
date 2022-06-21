@@ -86,6 +86,10 @@ async fn main() {
                         info!("temperature reach threshold {}", temperature);
                     }
 
+                    if speed > 100 {
+                        speed = 100;
+                    }
+
                     if last_speed != speed {
                         match tool.set_fan_speed(speed) {
                             Ok(_) => {
