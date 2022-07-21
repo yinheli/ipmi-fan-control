@@ -50,7 +50,7 @@ async fn main() {
 
             let mut threshold = a.threshold;
             if !RangeInclusive::new(60, 100).contains(&threshold) {
-                threshold = 75;
+                threshold = 70;
                 info!("invalid threshold, threshold set to {}", threshold);
             }
 

@@ -34,7 +34,7 @@ pub struct Auto {
     #[clap(short, long, default_value = "5")]
     pub interval: u64,
 
-    /// threshold CPU temperature for full speed Fan, default 75 (degrees), accepted value range [60-100]
-    #[clap(short, long, default_value = "80")]
+    /// threshold CPU temperature for full speed Fan, default 70 (degrees), accepted value range [60-100]
+    #[clap(short, long, default_value = "70")]
     pub threshold: u16,
 }
