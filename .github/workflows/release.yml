@@ -92,7 +92,7 @@ jobs:
           files: ipmi-fan-control-*/ipmi-fan-control-*
 
   publish_crates:
-    name: Publish crates
+    name: Publish Crates
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
