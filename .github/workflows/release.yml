@@ -3,7 +3,7 @@ name: Create release and upload binaries
 on:
   push:
     tags:
-    - 'v[0-9]+.[0-9]+.[0-9]*'
+      - "v[0-9]+.[0-9]+.[0-9]*"
 
 env:
   CARGO_INCREMENTAL: 0
@@ -28,7 +28,6 @@ jobs:
           - target: aarch64-unknown-linux-musl
             os: ubuntu-latest
             name: ipmi-fan-control-aarch64-unknown-linux-musl.tar.gz
-
 
     runs-on: ${{ matrix.os }}
     continue-on-error: true
@@ -71,7 +70,6 @@ jobs:
           name: ${{ matrix.name }}
           path: ${{ matrix.name }}
 
-
   upload_artifacts:
     name: Add Build Artifacts to Release
     needs: [github_build]
@@ -79,8 +77,6 @@ jobs:
     steps:
       - name: Setup | Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
 
       - name: Setup | Artifacts
         uses: actions/download-artifact@v3
@@ -94,3 +90,14 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           files: ipmi-fan-control-*/ipmi-fan-control-*
+
+      - name: Publish | Toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          toolchain: stable
+          override: true
+      - name: Publish | crates.io
+        uses: katyo/publish-crates@v1
+        with:
+          registry-token: ${{ secrets.CARGO_REGISTRY_TOKEN }}
+          ignore-unpublished-changes: true
