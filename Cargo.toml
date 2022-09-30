@@ -1,11 +1,12 @@
 [package]
 name = "ipmi-fan-control"
 authors = ["yinheli <me@yinheli.com>"]
-version = "0.1.6"
+version = "0.1.7"
 edition = "2021"
 keywords = ["ipmi", "fan"]
 description = "ipmi fan control, is a tool to control fan speed by monitoring cpu temperature"
 license = "MIT"
+homepage = "http://github.com/yinheli/ipmi-fan-control"
 repository = "http://github.com/yinheli/ipmi-fan-control"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
