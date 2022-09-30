@@ -1,14 +1,14 @@
 use clap::{Parser, Subcommand};
 
 #[derive(Parser)]
-#[clap(author, version, about)]
+#[command(author, version, about)]
 pub struct Args {
     /// Subcommands
-    #[clap(subcommand)]
+    #[command(subcommand)]
     pub command: Command,
 
     /// Verbose output
-    #[clap(long)]
+    #[arg(long)]
     pub verbose: bool,
 }
 
@@ -20,7 +20,7 @@ pub enum Command {
     /// Set fixed RPM percentage for fan
     Fixed {
         /// value range 0-100
-        #[clap(value_parser)]
+        #[arg(value_parser)]
         value: u16,
     },
 
@@ -31,10 +31,10 @@ pub enum Command {
 #[derive(clap::Args)]
 pub struct Auto {
     /// check CPU temperature interval second
-    #[clap(short, long, default_value = "5")]
+    #[arg(short, long, default_value = "5")]
     pub interval: u64,
 
     /// threshold CPU temperature for full speed Fan, default 70 (degrees), accepted value range [60-100]
-    #[clap(short, long, default_value = "70")]
+    #[arg(short, long, default_value = "70")]
     pub threshold: u16,
 }
