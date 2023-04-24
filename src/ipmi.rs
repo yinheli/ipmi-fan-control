@@ -87,16 +87,16 @@ impl Ipmi for IpmiTool {
             static ref RE: Regex = Regex::new(r"(?i)(\d*)\sdegrees").unwrap();
         }
 
-        for x in res.lines() {
-            if x.to_lowercase().starts_with("temp ") {
-                if let Some(v) = RE.captures(x) {
-                    let tmp = v.get(1).unwrap().as_str().parse::<u16>()?;
-                    return Ok(tmp);
+        res.lines()
+            .filter_map(|it| {
+                if let Some(v) = RE.captures(it) {
+                    v.get(1).unwrap().as_str().parse::<u16>().ok()
+                } else {
+                    None
                 }
-            }
-        }
-
-        Err(anyhow!("not found"))
+            })
+            .max()
+            .ok_or(anyhow!("no temperature found"))
     }
 
     fn set_fan_speed(&self, speed: u16) -> Result<(), Error> {
@@ -125,7 +125,7 @@ IO Usage         | 0 percent         | ok
 MEM Usage        | 0 percent         | ok
 SYS Usage        | 0 percent         | ok
 Exhaust Temp     | 32 degrees C      | ok
-Temp             | 45 degrees C      | ok
+Temp             | 40 degrees C      | ok
 Temp             | 45 degrees C      | ok
 Current 1        | 1 Amps            | ok
 Current 2        | 0.20 Amps         | ok
@@ -141,7 +141,7 @@ Pwr Consumption  | 238 Watts         | ok
 Inlet Temp       | 04h | ok  |  7.1 | 25 degrees C
 Exhaust Temp     | 01h | ok  |  7.1 | 32 degrees C
 Temp             | 0Eh | ok  |  3.1 | 45 degrees C
-Temp             | 0Fh | ok  |  3.2 | 45 degrees C
+Temp             | 0Fh | ok  |  3.2 | 40 degrees C
             ";
             Ok(output.to_string())
         }
