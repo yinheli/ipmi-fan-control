@@ -1,7 +1,7 @@
 [package]
 name = "ipmi-fan-control"
 authors = ["yinheli <me@yinheli.com>"]
-version = "0.1.8"
+version = "0.1.9"
 edition = "2021"
 keywords = ["ipmi", "fan"]
 description = "ipmi fan control, is a tool to control fan speed by monitoring cpu temperature"
