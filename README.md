@@ -48,4 +48,3 @@ SUBCOMMANDS:
 
 - https://www.intel.com/content/www/us/en/servers/ipmi/ipmi-home.html
 - https://github.com/ipmitool/ipmitool
-- https://back2basics.io/2020/05/reduce-the-fan-noise-of-the-dell-r720xd-plus-other-12th-gen-servers-with-ipmi/
