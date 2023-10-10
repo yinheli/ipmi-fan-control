@@ -69,7 +69,7 @@ impl Ipmi for IpmiTool {
         let res = self.cmd.get_info_fan_temp()?;
 
         lazy_static! {
-            static ref RE: Regex = Regex::new(r"(?i)^fan|temp").unwrap();
+            static ref RE: Regex = Regex::new(r"(?i)fan|temp").unwrap();
         }
 
         let filtered: String = res
