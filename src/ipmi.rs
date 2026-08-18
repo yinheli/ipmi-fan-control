@@ -39,7 +39,9 @@ impl Cmd {
 
 impl Executer for Cmd {
     fn get_info_fan_temp(&self) -> Result<String, Error> {
-        self.execute("ipmitool", vec!["sdr", "list", "full"])
+        let temp = self.execute("ipmitool", vec!["sdr", "type", "Temperature"])?;
+        let fan = self.execute("ipmitool", vec!["sdr", "type", "fan"])?;
+        Ok(format!("{temp}\n{fan}"))
     }
 
     fn get_cpu_temperature(&self) -> Result<String, Error> {
