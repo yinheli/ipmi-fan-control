@@ -29,7 +29,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup | Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup | Rust
         uses: dtolnay/rust-toolchain@1.97.1
@@ -61,7 +61,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Setup | Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
 
       - name: Setup | Artifacts
         uses: actions/download-artifact@v4
@@ -80,7 +80,7 @@ jobs:
     name: Publish Crates
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v7
       - uses: dtolnay/rust-toolchain@1.97.1
       - name: Publish | crates.io
         uses: katyo/publish-crates@v2
