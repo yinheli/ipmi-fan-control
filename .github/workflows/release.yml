@@ -70,7 +70,7 @@ jobs:
         run: for file in ipmi-fan-control-*/ipmi-fan-control-*; do openssl dgst -sha256 -r "$file" | awk '{print $1}' > "${file}.sha256"; done
 
       - name: Build | Add Artifacts to Release
-        uses: softprops/action-gh-release@v2
+        uses: softprops/action-gh-release@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
