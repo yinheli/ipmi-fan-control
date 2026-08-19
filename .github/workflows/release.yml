@@ -32,7 +32,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Setup | Rust
-        uses: dtolnay/rust-toolchain@1.97.1
+        uses: dtolnay/rust-toolchain@1.100.0
         with:
           targets: ${{ matrix.target }}
 
@@ -81,7 +81,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: dtolnay/rust-toolchain@1.97.1
+      - uses: dtolnay/rust-toolchain@1.100.0
       - name: Publish | crates.io
         uses: katyo/publish-crates@v2
         with:
